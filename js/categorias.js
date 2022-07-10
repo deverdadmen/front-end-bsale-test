@@ -4,7 +4,6 @@ $(document).ready(function() {
      * consultarCategorias se utiliza para llamar a la funcion que realiza la consulta de las categorias que se encuentran en la base de datos
      */
      consultarCategorias()
-
   });
 
   
@@ -20,7 +19,12 @@ function setCategorias(array){
     });
 }
 
-
+/**
+ * Se utiliza para asignar el valor a filtro y llamar a la funcion que corresponda a cada caso
+ */
 function filtrarProductosCategoria(categoria){
-    filtrarCategoria(categoria.textContent)
+    filtro = categoria.textContent
+    filtro !== undefined ? filtrarCategoria(filtro) : consultarProductos()
+       
 }
+

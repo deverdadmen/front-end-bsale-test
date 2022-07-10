@@ -1,8 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  
-  
-});
-
 $(document).ready(function() {
 
   // Check for click events on the navbar burger icon
@@ -15,3 +10,6 @@ $(document).ready(function() {
   });
 
 });
+
+
+

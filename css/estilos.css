@@ -1,4 +1,27 @@
-
+.contenedor-logo:hover{
+    background-color: transparent !important;
+}
+.logo{
+    font-size: 2em;
+    font-family: 'Roboto Mono', monospace;
+}
+.dropdown{
+    margin-bottom: 1rem;
+}
+.orden{
+    width: 20rem;
+}
+.dropdown-menu{
+    width: 20rem;
+}
+.footer{
+    height: 4rem;
+    padding: 0 1rem;
+    margin-top: auto;
+}
+.footer div{
+    height: 100%;
+}
 /*-----------------------------------------------------------*/
 /*----------------Catalogo de Productos----------------------*/
 /*-----------------------------------------------------------*/

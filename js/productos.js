@@ -1,3 +1,9 @@
+/**
+ * filtro -> se utiliza para saber que categoria se esta utilziando actualemte
+ * esBusqueda -> se utiliza para si los productos visibles son de una busqueda o no
+ */
+ let filtro = ''
+ let esBusqueda = false;
 $(document).ready(function() {
 
       /**
@@ -7,9 +13,9 @@ $(document).ready(function() {
 
   });
 
-  /**
- *  Se utiliza para cargar el html con la lista de productos que vienen de las consultas
- */
+/**
+*  Se utiliza para cargar el html con la lista de productos que vienen de las consultas
+*/
 function setProductos(array){
     $('#catalogo').empty()
     array.forEach(function(producto){
@@ -74,6 +80,9 @@ function setProductos(array){
     });
 }
 
+/**
+*  Se utiliza para obtener el valor del input de busqueda y se valida si solo tiene los caracteres requeridos
+*/
 function validateForm() {
     let busqueda = document.forms["buscador"]["busqueda"].value;
     const formato = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
@@ -98,3 +107,22 @@ function validateForm() {
     });
     return false
 } 
+
+/**
+ * se utiliza para saber como se desea ordenar los productos
+ */
+function ordenar(orden){
+    switch(orden){
+        case 'menor':
+          ordenarProductosMenor(filtro)
+        break;
+        case 'mayor':
+            ordenarProductosMayor(filtro)
+        break;
+        case 'alfabetico':
+            ordenarProductosAlfabetico(filtro)
+        break;
+
+    }
+}
+

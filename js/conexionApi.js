@@ -14,7 +14,7 @@ const consultarCategorias = async() =>{
     try {
         const respuesta = await fetch(`${URL_API}/categories `)
         const categorias = await respuesta.json()
-        setCategorias(categorias.lista);
+        setCategorias(categorias);
     } catch (error) {
         console.log(error)
     }
@@ -48,7 +48,7 @@ const consultarCategorias = async() =>{
             setProductos(productos);
         }else{
             swal({
-                title: "Pop-Up",
+                title: "Alert",
                 text:  `No se encontraron productos relacionados`,
                 confirmButtonText: "Aceptar",
             });
@@ -62,7 +62,7 @@ const consultarCategorias = async() =>{
 
 
 /**
- * filtrarVategoria Realiza la peticion de los productos de la categoria seleccionada
+ * filtrarCategoria Realiza la peticion de los productos de la categoria seleccionada
  */
  const filtrarCategoria = async(filtro) =>{
     try{
@@ -73,4 +73,44 @@ const consultarCategorias = async() =>{
         console.log(error)
     }
     
+}
+
+/**
+ * ordenarProductosMenor Realiza la peticion de los productos ordenados de menor a mayor precio
+ */
+const ordenarProductosMenor = async(filtro) =>{
+    try{
+        console.log(filtro)
+        const respuesta = filtro !== '' && filtro !== undefined ? await fetch(`${URL_API}/orderby/lower/${filtro}`) : await fetch(`${URL_API}/orderby/lower`)
+        const productos = await respuesta.json()
+        setProductos(productos)
+    }catch(error){
+        console.log(error)
+    }
+}
+
+/**
+ * ordenarProductosMayor Realiza la peticion de los productos ordenados de mayor a menor precio
+ */
+const ordenarProductosMayor = async(filtro) =>{
+    try{
+        const respuesta = filtro !== '' && filtro !== undefined ? await fetch(`${URL_API}/orderby/major/${filtro}`) : await fetch(`${URL_API}/orderby/major`)
+        const productos = await respuesta.json()
+        setProductos(productos)
+    }catch(error){
+        console.log(error)
+    }
+}
+
+/**
+ * ordenarProductosAlfabetico Realiza la peticion de los productos ordenados alfabeticamente
+ */
+const ordenarProductosAlfabetico = async(filtro) =>{
+    try{
+        const respuesta = filtro !== '' && filtro !== undefined ? await fetch(`${URL_API}/orderby/alphabetic/${filtro}`) : await fetch(`${URL_API}/orderby/alphabetic`)
+        const productos = await respuesta.json()
+        setProductos(productos)
+    }catch(error){
+        console.log(error)
+    }
 }
