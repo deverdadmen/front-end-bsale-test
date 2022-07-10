@@ -4,7 +4,7 @@
  * y la que esta comentada es la que se utiliza para pruebas locales
  */
 
- const URL_API = 'http://localhost:3000/api'
+ const URL_API = 'https://bsale-apirest.herokuapp.com/api'
 
  /**
  * consultarCategorias realiza la peticion de las categorias que se encuentran registradas
